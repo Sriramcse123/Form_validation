@@ -1,0 +1,89 @@
+
+<h1>Employee Form Validation</h1>
+<div class="container">
+<div class="row">
+ <div class="col-md-6 offset-md-3">
+
+
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+
+
+        <div class="form-group">
+          <label for="employeeName">Employee Name:</label>
+          <input id="employeeName"
+            formControlName="EmployeeName"
+            [ngClass]="{'is-invalid': submitted && employeeForm.controls['EmployeeName'].errors}"type="text"class="form-control"/>
+          <div *ngIf="submitted && employeeForm.controls['EmployeeName'].errors" class="text-danger">
+            <div *ngIf="submitted && employeeForm.controls['EmployeeName'].errors['required']">Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Gender:</label>
+          <label for="male">
+            <input id="male"
+              formControlName="Gender"
+              [ngClass]="{'is-invalid': submitted && employeeForm.controls['Gender'].errors}"type="radio"value="Male"/> Male
+          </label>
+          <label for="female">
+            <input id="female"
+              formControlName="Gender"
+              [ngClass]="{'is-invalid': submitted && employeeForm.controls['Gender'].errors}"type="radio"value="Female">Female
+          </label>
+          <div *ngIf="submitted && employeeForm.controls['Gender'].errors" class="text-danger">
+            <div *ngIf="submitted && employeeForm.controls['Gender'].errors['required']">Gender is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contact">Contact:</label>
+          <input id="contact"
+            formControlName="Contact"
+            [ngClass]="{'is-invalid': submitted && employeeForm.controls['Contact'].errors}" type="number"class="form-control">
+      
+          <div *ngIf="submitted && employeeForm.controls['Contact'].errors" class="text-danger">
+            <div *ngIf="submitted && employeeForm.controls['Contact'].errors['required']">Contact is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">DOB:</label>
+          <input
+            id="dob"
+            formControlName="DOB"
+            [ngClass]="{'is-invalid': submitted && employeeForm.controls['DOB'].errors}"type="date"class="form-control">
+          
+          <div *ngIf="submitted && employeeForm.controls['DOB'].errors" class="text-danger">
+            <div *ngIf="submitted && employeeForm.controls['DOB'].errors['required']">DOB is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input
+            id="address"
+            formControlName="Address"
+            [ngClass]="{'is-invalid': submitted && employeeForm.controls['Address'].errors}"type="text"class="form-control">
+          
+          <div *ngIf="submitted && employeeForm.controls['Address'].errors" class="text-danger">
+            <div *ngIf="submitted && employeeForm.controls['Address'].errors['required']">Address is required</div>
+          </div>
+        </div>
+        <section>
+          <div class="abc">
+            <app-file-upload></app-file-upload>
+          </div>
+          </section>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+       
+ </form>
+</div>
+</div>
+</div>
+
+
+
